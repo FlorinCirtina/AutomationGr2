@@ -23,6 +23,9 @@ public class SignInPage extends BasePage {
     private By logo = By.id("logo");
     private By emailField = By.xpath("//input[@ng-model='Email']");
     private By passwordField = By.xpath("//input[@ng-model='Password']");
+    private By enterButton = By.id("enterbtn");
+    private By errorMsg = By.id("errormsg");
+    private By skipSignInButton = By.id("btn2");
 
     public void clickSignInButton() {
         LOG.info("Click 'Sign in' button");
@@ -37,6 +40,36 @@ public class SignInPage extends BasePage {
     public boolean isLogoDisplayed() {
         LOG.info("Verify if Logo image is displayed");
         return driver.findElement(logo).isDisplayed();
+    }
+
+    public void typeInSignInEmailField(String email) {
+        LOG.info("Typing email address in 'E mail' field");
+        driver.findElement(emailField).sendKeys(email);
+    }
+
+    public void typeInSignInPasswordField(String password) {
+        LOG.info("Typing password in 'Password' field");
+        driver.findElement(passwordField).sendKeys(password);
+    }
+
+    public void clickEnterButton() {
+        LOG.info("Click 'Enter' button");
+        driver.findElement(enterButton).click();
+    }
+
+    public boolean isErrorMessageDisplayed() {
+        LOG.info("Verifying if error message is displayed");
+        return driver.findElement(errorMsg).isDisplayed();
+    }
+
+    public void clickBack() {
+        LOG.info("Click back in browser");
+        driver.navigate().back();
+    }
+
+    public void clickSkipSignInButton() {
+        LOG.info("Click 'Skip Sign in' button");
+        driver.findElement(skipSignInButton).click();
     }
 
 }
