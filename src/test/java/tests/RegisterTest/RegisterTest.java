@@ -33,5 +33,14 @@ public class RegisterTest extends BaseTest {
 
         LOG.info("Type in phone number");
         registerPage.insertPhoneNUmber(phone);
+
+        LOG.info("Select Gender");
+        registerPage.setMaleGender();
+        registerPage.setFemaleGender();
+
+        LOG.info("Select Hobbies");
+        registerPage.clickCricket();
+        registerPage.clickMovies();
+        registerPage.clickHockey();
     }
 }

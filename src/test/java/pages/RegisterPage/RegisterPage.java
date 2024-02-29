@@ -25,6 +25,11 @@ public class RegisterPage extends BasePage {
     private By inputAddress = By.xpath("//textarea[@ng-model='Adress']");
     private By inputEmail = By.xpath("//input[@type='email']");
     private By inputPhoneNUmber = By.xpath("//input[@ng-model='Phone']");
+    private By maleGender = By.xpath("//input[@value='Male']");
+    private By femaleGender = By.xpath("//input[@value='FeMale']");
+    private By cricketCheckmarks = By.id("checkbox1");
+    private By moviesCheckmarks = By.id("checkbox2");
+    private By hockeyCheckmarks = By.id("checkbox3");
 
     public void insertFullName(String fName, String lName) {
         LOG.info("Inserting FirstName and LastName");
@@ -50,5 +55,30 @@ public class RegisterPage extends BasePage {
     public void insertPhoneNUmber(String phone) {
         LOG.info("Insert phone number");
         driver.findElement(inputPhoneNUmber).sendKeys(phone);
+    }
+
+    public void setMaleGender() {
+        LOG.info("Clicking the Male radio button");
+        driver.findElement(maleGender).click();
+    }
+
+    public void setFemaleGender() {
+        LOG.info("Clicking the Female radio button");
+        driver.findElement(femaleGender).click();
+    }
+
+    public void clickCricket() {
+        LOG.info("Clicking Cricket checkmarks");
+        driver.findElement(cricketCheckmarks).click();
+    }
+
+    public void clickMovies() {
+        LOG.info("Clicking Movies checkmarks");
+        driver.findElement(moviesCheckmarks).click();
+    }
+
+    public void clickHockey() {
+        LOG.info("Clicking Hockey checkmarks");
+        driver.findElement(hockeyCheckmarks).click();
     }
 }
