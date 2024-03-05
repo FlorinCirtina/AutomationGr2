@@ -2,6 +2,7 @@ package pages.RegisterPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,10 @@ public class RegisterPage extends BasePage {
     private By selectYear = By.id("yearbox");
     private By selectMonth = By.xpath("//select[@ng-model='monthbox']");
     private By selectDay = By.id("daybox");
+    private By password = By.id("firstpassword");
+    private By confirmPassword = By.id("secondpassword");
+    private By chooseFileButton = By.id("imagesrc");
+    private By submitButton = By.id("submitbtn");
 
     public void insertFullName(String fName, String lName) {
         LOG.info("Inserting FirstName and LastName");
@@ -119,5 +124,22 @@ public class RegisterPage extends BasePage {
         newMonth.selectByValue(month);
         Select newDay = new Select(driver.findElement(selectDay));
         newDay.selectByValue(day);
+    }
+
+    public void setPassword(String pass) {
+        LOG.info("Setting password and confirm password");
+        driver.findElement(password).sendKeys(pass);
+        driver.findElement(confirmPassword).sendKeys(pass);
+    }
+
+    public void chooseFile() {
+        LOG.info("Uploading file");
+        WebElement chooseFile = driver.findElement(chooseFileButton);
+        chooseFile.sendKeys("C://Img//download.png");
+    }
+
+    public void clickSubmitButton() {
+        LOG.info("Clicking the 'Submit' button");
+        driver.findElement(submitButton);
     }
 }

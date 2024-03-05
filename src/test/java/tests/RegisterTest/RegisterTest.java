@@ -21,6 +21,7 @@ public class RegisterTest extends BaseTest {
     String year = "1991";
     String month = "February";
     String day = "29";
+    String password = "secretPassword";
 
     @Test
     public void fillRegister() {
@@ -28,7 +29,7 @@ public class RegisterTest extends BaseTest {
         sleep(3000L);
 
         LOG.info("Typing full name");
-        registerPage.acceptConsent();
+//        registerPage.acceptConsent();
         registerPage.insertFullName(firstName, lastName);
 
         LOG.info("Type in Address");
@@ -60,6 +61,15 @@ public class RegisterTest extends BaseTest {
 
         LOG.info("Select date of birth");
         registerPage.setDateOfBirth(year, month, day);
+
+        LOG.info("Set password");
+        registerPage.setPassword(password);
+
+        LOG.info("Click 'Choose File' button");
+        registerPage.chooseFile();
+
+        LOG.info("Click Submit button");
+        registerPage.clickSubmitButton();
 
         sleep(5000L);
     }
